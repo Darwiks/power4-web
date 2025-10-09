@@ -7,12 +7,12 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", Home)
-	http.HandleFunc("/play",Play)
+	http.HandleFunc("/", HomeHandler)
+	http.HandleFunc("/play",PlayHandler)
 	http.ListenAndServe(":8080", nil)
 }
 
-func Home(w http.ResponseWriter, r *http.Request) {
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("./index.html", "./templates/header.html", "./templates/footer.html")
 	if err != nil {
 		log.Fatal(err)
@@ -20,5 +20,5 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, nil)
 }
 
-func Play(w http.ResponseWriter, r *http.Request) {
+func PlayHandler(w http.ResponseWriter, r *http.Request) {
 }
