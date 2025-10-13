@@ -8,10 +8,25 @@
     {{template "header" .}}
     <form action="/play" method="post">
         <label>Joueur 1</label>
-        <input type="text" name="joueur1">
+        <input type="text" name="joueur1"  required>
         <label>Joueur 2</label>
-        <input type="text" name="joueur2">
-        <button type="submit">Play</button>
+        <input type="text" name="joueur2" required>
+        <button type="submit" id="valider">Play</button>
+        <br>
+        <label>
+        <input type="radio" name="difficulte" value="facile">
+        Facile
+        </label><br>
+
+        <label>
+        <input type="radio" name="difficulte" value="moyen">
+        Moyen
+        </label><br>
+
+        <label>
+        <input type="radio" name="difficulte" value="difficile">
+        Difficile
+        </label><br>
     </form>
     {{template "footer" .}}
 </body>
