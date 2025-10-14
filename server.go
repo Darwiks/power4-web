@@ -38,9 +38,9 @@ func main() {
 
 	// Routes
 	http.HandleFunc("/", HomeHandler)
-	http.HandleFunc("/play", PlayFHandler)
-	http.HandleFunc("/play", PlayMHandler)
-	http.HandleFunc("/play", PlayDHandler)
+	http.HandleFunc("/playF", PlayFHandler)
+	http.HandleFunc("/playM", PlayMHandler)
+	http.HandleFunc("/playD", PlayDHandler)
 	http.ListenAndServe(":8080", nil)
 }
 
