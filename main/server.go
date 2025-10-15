@@ -1,77 +1,21 @@
 package main
 
 import (
-	"html/template"
 	"log"
 	"net/http"
+	power4 "power4/code"
 )
 
-var GrilleF = [6][7]int{}
-var GrilleM = [5][6]int{}
-var GrilleD = [4][5]int{}
-
 func main() {
-	// Initialisation des grilles
-	GrilleF = [6][7]int{
-		{0, 0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0, 0},
-	}
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	GrilleM = [5][6]int{
-		{0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0, 0},
-	}
+	http.HandleFunc("/", power4.HomeHandler)
+	http.HandleFunc("/start", power4.StartHandler)
+	http.HandleFunc("/playF", power4.PlayFHandler)
+	http.HandleFunc("/playM", power4.PlayMHandler)
+	http.HandleFunc("/playD", power4.PlayDHandler)
 
-	GrilleD = [4][5]int{
-		{0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0},
-		{0, 0, 0, 0, 0},
-	}
-
-	// Routes
-	http.HandleFunc("/", HomeHandler)
-	http.HandleFunc("/playF", PlayFHandler)
-	http.HandleFunc("/playM", PlayMHandler)
-	http.HandleFunc("/playD", PlayDHandler)
+	log.Println("Serveur lancé sur http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
-}
-
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("pages/index.html", "pages/templates/header.html", "pages/templates/footer.html")
-	if err != nil {
-		log.Fatal(err)
-	}
-	tmpl.Execute(w, nil)
-}
-
-func PlayFHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("pages/playF.html", "pages/templates/header.html", "pages/templates/footer.html")
-	if err != nil {
-		log.Fatal(err)
-	}
-	tmpl.Execute(w, nil)
-}
-
-func PlayMHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("pages/playM.html", "pages/templates/header.html", "pages/templates/footer.html")
-	if err != nil {
-		log.Fatal(err)
-	}
-	tmpl.Execute(w, nil)
-}
-
-func PlayDHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("pages/playD.html", "pages/templates/header.html", "pages/templates/footer.html")
-	if err != nil {
-		log.Fatal(err)
-	}
-	tmpl.Execute(w, nil)
 }
