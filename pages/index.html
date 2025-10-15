@@ -6,12 +6,12 @@
 </head>
 <body>
     {{template "header" .}}
-    <form action="/play" method="post">
+    <form action="/start" method="post">
         <label>Joueur 1</label>
         <input type="text" name="joueur1"  required>
         <label>Joueur 2</label>
         <input type="text" name="joueur2" required>
-        <button type="submit" id="valider">Play</button>
+        <button type="submit">Commencer</button>
         <br>
         <label>
         <input type="radio" name="difficulte" value="facile">
