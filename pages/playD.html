@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puissance 4 - Difficile</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {{template "header" .}}
+
+    <div class="message">
+        {{if eq .Gagnant 1}} 🎉 {{.Joueur1}} (Rouge) gagne !<br><br>
+        😒 {{.Joueur2}} (Jaune) perd ! {{end}}
+        {{if eq .Gagnant 2}} 🎉 {{.Joueur2}} (Jaune) gagne !<br><br>
+        😒 {{.Joueur1}} (Rouge) perd ! {{end}}
+        {{if eq .Gagnant 0}} Tour du joueur
+            {{if eq .JoueurActuel 1}}🔴 {{.Joueur1}}{{else}}🟡 {{.Joueur2}}{{end}}
+        {{end}}
+    </div>
+
+    <form method="POST">
+        {{if eq .Gagnant 0}}
+            {{range $i, $v := index .Grille 0}}
+                <button type="button" class="column-btn" onclick="selectColumn('{{$i}}')">{{$i}}</button>
+            {{end}}
+        {{end}}
+    </form>
+    <script>
+        function selectColumn(col) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '';
+
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'col';
+            input.value = col;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+
+    <table>
+        {{range .Grille}}
+            <tr>
+                {{range .}}
+                    <td class="
+                        {{if eq . 1}}td-joueur1{{end}}
+                        {{if eq . 2}}td-joueur2{{end}}
+                    "></td>
+                {{end}}
+            </tr>
+        {{end}}
+    </table>
+
+    <form method="POST">
+        <button type="submit" name="reset" value="1">🔁 Recommencer</button>
+    </form>
+
+    <form action="/" method="get">
+        <button type="submit">🏠 Retour à l'accueil</button>
+    </form>
+
+    {{template "footer" .}}
+</body>
+</html>
