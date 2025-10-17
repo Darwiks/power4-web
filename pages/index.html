@@ -2,32 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Power4 Game</title>
+    <title>Puissance 4</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     {{template "header" .}}
+
     <form action="/start" method="post">
         <label>Joueur 1</label>
-        <input type="text" name="joueur1"  required>
+        <input type="text" name="joueur1" required>
         <label>Joueur 2</label>
         <input type="text" name="joueur2" required>
-        <button type="submit">Commencer</button>
         <br>
-        <label>
-        <input type="radio" name="difficulte" value="facile">
-        Facile
-        </label><br>
 
-        <label>
-        <input type="radio" name="difficulte" value="moyen">
-        Moyen
-        </label><br>
+        <label><input type="radio" name="difficulte" value="facile" checked> Facile</label><br>
+        <label><input type="radio" name="difficulte" value="moyen"> Moyen</label><br>
+        <label><input type="radio" name="difficulte" value="difficile"> Difficile</label><br><br>
 
-        <label>
-        <input type="radio" name="difficulte" value="difficile">
-        Difficile
-        </label><br>
+        <button type="submit">Commencer</button>
     </form>
+
     {{template "footer" .}}
 </body>
 </html>

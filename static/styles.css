@@ -1,0 +1,155 @@
+/* -------------------- BODY -------------------- */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f5;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------- HEADER -------------------- */
+header {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* -------------------- FOOTER -------------------- */
+footer {
+    margin-top: 20px;
+}
+
+footer button,
+button.action-btn {
+    min-width: 150px; /* Augmente la largeur minimale pour ces boutons */
+    padding: 10px 20px; /* Ajoute plus d'espace intérieur pour le texte */
+    font-size: 1.1em; /* Augmente légèrement la taille du texte */
+}
+
+footer button {
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: #555;
+}
+
+/* -------------------- BOUTONS DES COLONNES -------------------- */
+button.column-btn {
+    width: 10px; /* Make the buttons narrower */
+    height: 30px; /* Make the buttons taller */
+    margin: 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    transition: 0.3s;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    padding: 2px 1px; /* Adjust padding to fit the new dimensions */
+}
+
+button.column-btn:hover {
+    background-color: #45a049;
+}
+
+/* -------------------- AUTRES BOUTONS -------------------- */
+button {
+    min-width: 63px; /* Taille standard pour les autres boutons */
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* -------------------- ALIGNEMENT DES BOUTONS -------------------- */
+form {
+    display: flex;
+    justify-content: center;
+    gap: 2px; /* Ajoute un petit espacement entre les boutons pour l'alignement */
+}
+
+/* -------------------- BOUTONS ACTION -------------------- */
+button.action-btn,
+button[type="submit"] {
+    min-width: 150px; /* Augmente la largeur minimale pour ces boutons */
+    padding: 10px 20px; /* Ajoute plus d'espace intérieur pour le texte */
+    font-size: 1.1em; /* Augmente légèrement la taille du texte */
+    height: auto; /* Permet aux boutons de s'adapter à leur contenu */
+} 
+
+/* -------------------- TABLEAU -------------------- */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table.grid {
+    border-collapse: collapse;
+    margin: 0 auto; /* Centre la grille */
+}
+
+table.grid td {
+    width: 60px; /* Correspond à la largeur des boutons */
+    height: 60px; /* Correspond à la hauteur des boutons */
+    text-align: center; /* Centre le contenu dans les cellules */
+}
+
+td {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* -------------------- PIONS -------------------- */
+.td-joueur1 {
+    background-color: red;
+}
+
+.td-joueur2 {
+    background-color: yellow;
+}
+
+/* -------------------- MESSAGE -------------------- */
+.message {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* -------------------- FORMULAIRES -------------------- */
+form {
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+label {
+    margin: 0 5px;
+    font-weight: bold;
+}
