@@ -26,8 +26,7 @@ Le serveur utilise les templates HTML situées sous `pages/` et expose plusieurs
 
 2. Compiler et lancer l'application :
 
-	go build ./...
-	./power4-web   # ou `go run main/server.go` depuis la racine du projet
+	`go run main/server.go` depuis le terminal
 
 	Par défaut le serveur écoute sur : http://localhost:8080
 
